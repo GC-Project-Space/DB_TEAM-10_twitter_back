@@ -1,4 +1,4 @@
-package com.example.twitterclone.global.common.entity;
+package com.example.twitterclone.domain;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;

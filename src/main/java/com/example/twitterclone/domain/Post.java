@@ -1,8 +1,8 @@
-package com.example.twitterclone.global.common.entity;
+package com.example.twitterclone.domain;
 
-import com.example.twitterclone.global.common.entity.mapping.PostLike;
-import com.example.twitterclone.global.common.entity.mapping.PostTag;
-import com.example.twitterclone.global.common.entity.mapping.Retwit;
+import com.example.twitterclone.domain.mapping.PostLike;
+import com.example.twitterclone.domain.mapping.PostTag;
+import com.example.twitterclone.domain.mapping.Retwit;
 import lombok.*;
 
 import javax.persistence.*;

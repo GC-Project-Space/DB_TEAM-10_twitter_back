@@ -1,6 +1,6 @@
-package com.example.twitterclone.global.common.entity;
+package com.example.twitterclone.domain;
 
-import com.example.twitterclone.global.common.entity.mapping.PostTag;
+import com.example.twitterclone.domain.mapping.PostTag;
 import lombok.*;
 
 import javax.persistence.*;

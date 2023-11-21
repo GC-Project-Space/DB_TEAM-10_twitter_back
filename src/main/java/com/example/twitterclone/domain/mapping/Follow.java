@@ -1,7 +1,7 @@
-package com.example.twitterclone.global.common.entity.mapping;
+package com.example.twitterclone.domain.mapping;
 
-import com.example.twitterclone.global.common.entity.BaseEntity;
-import com.example.twitterclone.global.common.entity.Member;
+import com.example.twitterclone.domain.BaseEntity;
+import com.example.twitterclone.domain.Member;
 import lombok.*;
 
 import javax.persistence.*;
