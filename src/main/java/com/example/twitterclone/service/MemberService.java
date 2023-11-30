@@ -1,6 +1,7 @@
 package com.example.twitterclone.service;
 
 import com.example.twitterclone.domain.Member;
+import com.example.twitterclone.domain.mapping.Follow;
 import com.example.twitterclone.dto.UserRequest;
 import com.example.twitterclone.repository.MemberRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,5 +39,24 @@ public class MemberService {
         user.changePassword(newPassword);
         //변경 정보 저장
         memberRepository.save(user);
+    }
+
+    public void followMember(Long followerId, Long followingId) {
+        Member follower = memberRepository.findById(followerId)
+                .orElseThrow(() -> new EntityNotFoundException("Follower not found with id: " + followerId));
+
+        Member following = memberRepository.findById(followingId)
+                .orElseThrow(() -> new EntityNotFoundException("Following member not found with id: " + followingId));
+
+        Follow follow = Follow.builder()
+                .follower(follower)
+                .following(following)
+                .build();
+
+        follower.getFollowerList().add(follow);
+        following.getFollowingList().add(follow);
+
+        memberRepository.save(follower);
+        memberRepository.save(following);
     }
 }
