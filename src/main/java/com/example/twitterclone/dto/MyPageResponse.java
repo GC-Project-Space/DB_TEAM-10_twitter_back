@@ -5,14 +5,28 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+import java.util.List;
+
 public class MyPageResponse {
 
     @Builder
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class ExampleCreateDto {
-        private Long followCount;
-        private Long followerCount;
+    public static class mypageDto {
+        private int followCount;
+        private int followerCount;
+        private List<PostDTO> posts;
+    }
+
+    @Getter
+    @Builder
+    public static class PostDTO {
+        private Long id;
+        private String content;
+        private Long authorId;
+        private LocalDateTime createdAt;
+
     }
 }

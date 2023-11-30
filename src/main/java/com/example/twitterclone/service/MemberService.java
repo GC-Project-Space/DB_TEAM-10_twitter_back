@@ -1,23 +1,35 @@
 package com.example.twitterclone.service;
 
 import com.example.twitterclone.domain.Member;
+import com.example.twitterclone.domain.Post;
 import com.example.twitterclone.domain.mapping.Follow;
+import com.example.twitterclone.dto.MyPageResponse;
 import com.example.twitterclone.dto.UserRequest;
 import com.example.twitterclone.repository.MemberRepository;
+import com.example.twitterclone.repository.PostRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Sort;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Service;
 
 import javax.persistence.EntityNotFoundException;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final PostRepository postRepository;
 
     @Autowired
-    public MemberService(MemberRepository memberRepository) {
+    public MemberService(MemberRepository memberRepository, PostRepository postRepository) {
+
         this.memberRepository = memberRepository;
+        this.postRepository = postRepository;
     }
 
     public Member signUp(UserRequest.SignUpDto request) {
@@ -59,4 +71,5 @@ public class MemberService {
         memberRepository.save(follower);
         memberRepository.save(following);
     }
+
 }
