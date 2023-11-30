@@ -13,18 +13,19 @@ import lombok.Getter;
 public class ResponseDto<T>{
 
     @JsonProperty("isSuccess")
-    private final Boolean isSuccess;
+    private final boolean success;
     private final String code;
     private final String message;
-
     @JsonInclude(JsonInclude.Include.NON_NULL)
-    private final T result;
+    private T result; // 성공시 응답 데이터
 
+    // 성공한 경우 응답 생성
     public static <T> ResponseDto<T> onSuccess(T result){
         return new ResponseDto<>(true, ErrorCode._OK.getCode(), ErrorCode._OK.getMessage(), result);
     }
-
+    // 실패한 경우 응답 생성
     public static <T> ResponseDto<T> onFail(T result, ErrorCode code){
         return new ResponseDto<>(false, code.getCode(), code.getMessage(), result);
     }
+
 }

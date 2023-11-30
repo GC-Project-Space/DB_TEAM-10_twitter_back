@@ -52,4 +52,8 @@ public class Member extends BaseEntity {
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL)
     private List<Retwit> retwitList = new ArrayList<>();
 
+    //비밀번호 변경
+    public void changePassword(String password) {
+        this.password = password;
+    }
 }
