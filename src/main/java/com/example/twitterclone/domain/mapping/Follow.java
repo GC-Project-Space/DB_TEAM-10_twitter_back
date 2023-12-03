@@ -27,17 +27,23 @@ public class Follow extends BaseEntity {
 
     //연관 관계 편의 메서드
     public void setFollower(Member member){
-        if(this.follower != null)
-            member.getFollowerList().remove(this);
+        if(this.follower != null) {
+            this.follower.getFollowerList().remove(this);
+        }
         this.follower = member;
-        member.getFollowerList().add(this);
+        if(follower != null) {
+            follower.getFollowerList().add(this);
+        }
     }
 
     //연관 관계 편의 메서드
     public void setFollowing(Member member){
-        if(this.following != null)
-            member.getFollowingList().remove(this);
+        if(this.following != null) {
+            this.following.getFollowingList().remove(this);
+        }
         this.following = member;
-        member.getFollowingList().add(this);
+        if(following != null) {
+            following.getFollowingList().add(this);
+        }
     }
 }

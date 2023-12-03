@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 public class HomeResponse {
@@ -14,7 +15,11 @@ public class HomeResponse {
     @Getter
     @NoArgsConstructor
     @AllArgsConstructor
-    public static class HomeDto {
-        private List<Post> postList;
+    public static class homeDto {
+        private Long postId;
+        private String content;
+        private Long authorId;
+        private LocalDateTime createdAt;
+
     }
 }

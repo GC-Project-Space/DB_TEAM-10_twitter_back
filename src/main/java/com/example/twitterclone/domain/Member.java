@@ -5,6 +5,8 @@ import com.example.twitterclone.domain.enums.Status;
 import com.example.twitterclone.domain.mapping.Follow;
 import com.example.twitterclone.domain.mapping.PostLike;
 import lombok.*;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.time.LocalDateTime;
@@ -14,6 +16,8 @@ import java.util.List;
 @Entity
 @Getter
 @Builder
+@DynamicInsert
+@DynamicUpdate
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 @AllArgsConstructor
 public class Member extends BaseEntity {
@@ -22,7 +26,7 @@ public class Member extends BaseEntity {
     @GeneratedValue
     private Long id;
 
-    @Column(nullable = false, unique = true, length = 30)
+    @Column(nullable = false, length = 30)
     private String loginId;
 
     @Column(nullable = false, length = 50)

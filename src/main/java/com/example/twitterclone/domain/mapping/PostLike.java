@@ -3,16 +3,14 @@ package com.example.twitterclone.domain.mapping;
 import com.example.twitterclone.domain.BaseEntity;
 import com.example.twitterclone.domain.Member;
 import com.example.twitterclone.domain.Post;
-import lombok.AccessLevel;
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
+@Builder
 @AllArgsConstructor
 public class PostLike extends BaseEntity {
 
@@ -27,4 +25,12 @@ public class PostLike extends BaseEntity {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    public void setPost(Post post) {
+        this.post = post;
+    }
+
+    public void setMember(Member member) {
+        this.member = member;
+    }
 }

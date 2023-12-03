@@ -17,3 +17,12 @@ spring:
         hbm2ddl:
           auto: update #create, update, validate, none (수정이라면 update로 바꿔야함)
         default_batch_fetch_size: 1000
+    # Hibernate SQL 출력을 위한 로그 레벨 설정
+    logging:
+      level:
+        org:
+          hibernate:
+            SQL: DEBUG
+            type:
+              descriptor:
+                sql: TRACE

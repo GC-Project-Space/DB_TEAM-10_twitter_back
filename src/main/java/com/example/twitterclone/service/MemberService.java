@@ -66,10 +66,8 @@ public class MemberService {
                 .build();
 
         follower.getFollowerList().add(follow);
-        following.getFollowingList().add(follow);
 
         memberRepository.save(follower);
-        memberRepository.save(following);
     }
 
 }

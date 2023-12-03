@@ -42,7 +42,7 @@ public class MemberController {
 
     @Operation(summary = "change-password API", description = "비밀번호 변경 API") // Swagger Operation
     @PatchMapping("/{user-id}/change-password")
-    public ResponseEntity<String> changePassword(@PathVariable Long userId,
+    public ResponseEntity<String> changePassword(@PathVariable("user-id") Long userId,
                                                  @RequestBody String newPassword) {
         memberService.changePassword(userId, newPassword);
         return ResponseEntity.ok("Password changed successfully for user: " + userId.toString());
